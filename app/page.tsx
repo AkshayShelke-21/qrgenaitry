@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 
 export default function Home() {
-  const [text, setText] = useState('https://nextjs.org');
+  const [text, setText] = useState('');
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const qrRef = useRef<HTMLDivElement>(null);
   // Set default values for QR code
@@ -54,7 +54,7 @@ export default function Home() {
     <div className={`min-h-screen ${theme === 'light' ? 'bg-neutral-50' : 'bg-neutral-900'} flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8`}>
       <div className="max-w-md w-full space-y-8">
         <header className="text-center relative">
-          <h1 className={`text-3xl font-light tracking-tight ${theme === 'light' ? 'text-neutral-800' : 'text-neutral-100'}`}>QR Code Generator</h1>
+          <h1 className={`text-3xl font-light tracking-tight ${theme === 'light' ? 'text-neutral-800' : 'text-neutral-100'}`}>AI QR Gen</h1>
           
           <button 
             onClick={toggleTheme} 
@@ -98,7 +98,7 @@ export default function Home() {
             
             <div ref={qrRef} className="flex justify-center py-4">
               <QRCodeSVG
-                value={text || 'https://nextjs.org'}
+                value={text || ''}
                 size={size}
                 bgColor={bgColor}
                 fgColor={fgColor}
